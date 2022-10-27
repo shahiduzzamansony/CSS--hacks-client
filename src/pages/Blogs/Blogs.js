@@ -3,7 +3,7 @@ import React from "react";
 const Blogs = () => {
   return (
     <div className="mt-5">
-      <div className="w-75 bg-light rounded m-auto p-3">
+      <div className="w-75 bg-light rounded mx-auto my-4 p-3">
         <h2>what is cors?</h2>
         <p>
           As you've possibly already come across by now, CORS is an acronym for
@@ -21,7 +21,7 @@ const Blogs = () => {
           can only make requests to the (sub)domain that it originated from.
         </p>
       </div>
-      <div className="w-75 bg-light rounded m-auto p-3">
+      <div className="w-75 bg-light rounded mx-auto my-4 p-3">
         <h2>
           Why are you using firebase? What other options do you have to
           implement authentication?
@@ -35,7 +35,7 @@ const Blogs = () => {
           Keycloak. Frontegg. Authress.
         </p>
       </div>
-      <div className="w-75 bg-light rounded m-auto p-3">
+      <div className="w-75 bg-light rounded mx-auto my-4 p-3">
         <h2>How does the private route work?</h2>
         <p>
           Private Routes vary based on the Apps, For example, Dashboard, User
@@ -47,7 +47,7 @@ const Blogs = () => {
           for your react apps.
         </p>
       </div>
-      <div className="w-75 bg-light rounded m-auto p-3">
+      <div className="w-75 bg-light rounded mx-auto my-4 p-3">
         <h2>What is Node? How does Node work?</h2>
         <p>
           Node.js is an open-source backend javascript runtime environment. It

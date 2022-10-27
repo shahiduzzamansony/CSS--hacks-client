@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Category = ({ category }) => {
   const { name, img_url, details, id } = category;
   return (
-    <div>
+    <div className="mt-3">
       <Card style={{ width: "18rem", height: "20rem" }}>
         <Card.Img variant="top" src={img_url} style={{ height: "8rem" }} />
         <Card.Body>

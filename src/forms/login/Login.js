@@ -30,7 +30,6 @@ const Login = () => {
   const handleGoogleLogIn = () => {
     providerLogin(googleProvider)
       .then((result) => {
-        const user = result.user;
         navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
@@ -56,7 +55,7 @@ const Login = () => {
   };
 
   return (
-    <div className="w-50 m-auto bg-light p-5 mt-4 rounded">
+    <div className="w-75 m-auto bg-light p-5 mt-4 rounded">
       <Form className="my-4" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>

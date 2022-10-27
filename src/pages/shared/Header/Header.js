@@ -11,7 +11,7 @@ import "tippy.js/dist/tippy.css";
 import ReactSwitch from "react-switch";
 
 const Header = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, toggleTheme, theme } = useContext(AuthContext);
 
   const handleLogOut = () => {
     logOut()
@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+      <Navbar collapseOnSelect expand="lg" bg={theme} variant={theme}>
         <Container>
           <Image
             style={{ height: "40px" }}
@@ -96,7 +96,15 @@ const Header = () => {
                 )}
               </Link>
             </Nav>
-            <ReactSwitch></ReactSwitch>
+            <div className="d-flex justify-content-center align-items-center text-secondary">
+              <ReactSwitch
+                onChange={toggleTheme}
+                checked={theme === "dark"}
+              ></ReactSwitch>
+              <label className="ms-2">
+                {theme === "light" ? "Light Mode" : "Dark Mode"}
+              </label>
+            </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>

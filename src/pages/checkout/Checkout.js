@@ -9,7 +9,7 @@ const Checkout = () => {
   return (
     <div>
       <div className="mt-5">
-        <Card className="text-center w-25 m-auto bg-secondary text-white">
+        <Card className="text-center w-50 m-auto bg-secondary text-white">
           <Card.Body>
             <Card.Title>{name}</Card.Title>
             <Card.Text>
@@ -18,14 +18,19 @@ const Checkout = () => {
             <Card.Text>
               <p>Classes: {classes}</p>
             </Card.Text>
-            <Button variant="primary" className="me-3">
-              Procced
-            </Button>
-            <Button variant="primary">
-              <Link to="/framework" className="text-decoration-none text-white">
-                Go Back
-              </Link>
-            </Button>
+            <div className="d-flex justify-content-center">
+              <Button variant="primary" className="me-3">
+                Procced
+              </Button>
+              <Button variant="primary">
+                <Link
+                  to="/framework"
+                  className="text-decoration-none text-white"
+                >
+                  Go Back
+                </Link>
+              </Button>
+            </div>
           </Card.Body>
         </Card>
       </div>

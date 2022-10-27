@@ -2,8 +2,8 @@ import React from "react";
 
 const Faq = () => {
   return (
-    <div>
-      <h2>generate your own</h2>
+    <div className="text-white text-center mt-4">
+      <h2>Generate your own</h2>
     </div>
   );
 };

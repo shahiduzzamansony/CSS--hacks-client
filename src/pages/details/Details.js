@@ -2,14 +2,15 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import "./Details.css";
 
 const Details = () => {
   const data = useLoaderData();
   const { name, img_url, price, classes, details, id } = data;
   return (
     <div className="my-4">
-      <Card className="m-auto w-75 h-50 d-flex flex-row">
-        <Card.Img variant="top" src={img_url} className="w-50" />
+      <Card className="m-auto w-75 d-flex flex-sm-column flex-lg-row">
+        <Card.Img variant="top" src={img_url} id="details" />
         <Card.Body className="bg-info">
           <Card.Title>{name}</Card.Title>
           <Card.Text>{details}</Card.Text>

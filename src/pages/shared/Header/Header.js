@@ -6,6 +6,8 @@ import Navbar from "react-bootstrap/Navbar";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import { FaJenkins } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -48,11 +50,13 @@ const Header = () => {
 
             <Nav.Link eventKey={2} href="#profile" className="ms-2">
               {user?.photoURL ? (
-                <Image
-                  style={{ height: "30px" }}
-                  roundedCircle
-                  src={user?.photoURL}
-                ></Image>
+                <Tippy content={user?.displayName}>
+                  <Image
+                    style={{ height: "30px" }}
+                    roundedCircle
+                    src={user?.photoURL}
+                  ></Image>
+                </Tippy>
               ) : (
                 <FaJenkins></FaJenkins>
               )}
@@ -60,15 +64,12 @@ const Header = () => {
             <Nav>
               <Nav.Link eventKey={2} href="#profile">
                 {user?.uid ? (
-                  <>
-                    <span>{user?.displayName}</span>
-                    <Button
-                      className="bg-transparent border border-0 text-secondary"
-                      onClick={handleLogOut}
-                    >
-                      Log Out
-                    </Button>
-                  </>
+                  <Button
+                    className="bg-transparent border border-0 text-secondary"
+                    onClick={handleLogOut}
+                  >
+                    Log Out
+                  </Button>
                 ) : (
                   <>
                     <Link

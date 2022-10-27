@@ -5,7 +5,6 @@ import Main from "../../layout/Main";
 import Category from "../../pages/category/Category";
 import Checkout from "../../pages/checkout/Checkout";
 import Details from "../../pages/details/Details";
-import Framework from "../../pages/Frameworks/Framework/Framework";
 import Home from "../../pages/Home/Home";
 import PrivateRoute from "../privateRoute/PrivateRoute";
 
@@ -50,6 +49,10 @@ export const routes = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/details/${params.id}`),
+      },
+      {
+        path: "*",
+        element: <div>Route matching: False</div>,
       },
     ],
   },

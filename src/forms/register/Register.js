@@ -3,9 +3,12 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
+import { useNavigate } from "react-router-dom";
+
 const Register = () => {
   const [error, setError] = useState("");
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,6 +23,7 @@ const Register = () => {
         const user = result.user;
         setError();
         form.reset();
+        navigate("/login");
       })
       .catch((e) => {
         console.log(e);
@@ -29,7 +33,7 @@ const Register = () => {
 
   return (
     <div>
-      <Form className="my-4" onSubmit={handleSubmit}>
+      <Form className="my-4 w-50 m-auto" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>User Name</Form.Label>
           <Form.Control name="name" type="text" placeholder="Name" />

@@ -13,7 +13,7 @@ const Details = () => {
   const { name, img_url, price, classes, details, id } = data;
   return (
     <div className="my-4">
-      <Card className="m-auto w-75 d-flex flex-sm-column flex-lg-row">
+      <Card className="m-auto w-75 d-flex flex-sm-column flex-lg-row" ref={ref}>
         <Card.Img variant="top" src={img_url} id="details" />
         <Card.Body className="bg-info">
           <Card.Title>{name}</Card.Title>

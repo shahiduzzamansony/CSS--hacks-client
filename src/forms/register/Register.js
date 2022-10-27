@@ -7,8 +7,13 @@ import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [error, setError] = useState("");
+  const [accepted, setAccepted] = useState(false);
   const { createUser, handleProfile } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const handleAccepted = (event) => {
+    setAccepted(event.target.checked);
+  };
 
   const handleProfileInfo = (name, photoURL) => {
     const profile = {
@@ -44,7 +49,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="w-75 m-auto bg-light p-5 mt-4 rounded">
       <Form className="my-4 w-75 m-auto" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>User Name</Form.Label>
@@ -75,9 +80,13 @@ const Register = () => {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
+          <Form.Check
+            onClick={handleAccepted}
+            type="checkbox"
+            label="Check me out"
+          />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" disabled={!accepted}>
           Submit
         </Button>
         <Form.Text className="text-danger">

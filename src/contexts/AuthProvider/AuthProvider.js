@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 
@@ -15,6 +16,14 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === "light" ? "dark" : "light"));
+  };
+  const handleProfile = (profile) => {
+    return updateProfile(auth.currentUser, profile);
+  };
 
   const providerLogin = (provider) => {
     setLoading(true);
@@ -46,7 +55,16 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  const authInfo = { user, providerLogin, logOut, signIn, createUser, loading };
+  const authInfo = {
+    user,
+    providerLogin,
+    logOut,
+    signIn,
+    createUser,
+    loading,
+    toggleTheme,
+    handleProfile,
+  };
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

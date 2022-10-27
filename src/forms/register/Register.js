@@ -7,8 +7,18 @@ import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [error, setError] = useState("");
-  const { createUser } = useContext(AuthContext);
+  const { createUser, handleProfile } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const handleProfileInfo = (name, photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL,
+    };
+    handleProfile(profile)
+      .then((result) => {})
+      .catch((e) => console.error(e));
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -21,6 +31,8 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
+        console.log(user);
+        handleProfileInfo(name, photoURL);
         setError();
         form.reset();
         navigate("/login");

@@ -8,6 +8,7 @@ import { FaJenkins } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
+import ReactSwitch from "react-switch";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -22,9 +23,12 @@ const Header = () => {
     <div>
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Container>
-          <Navbar.Brand href="#home" className="fs-2">
+          <Link
+            to="/"
+            className="fs-1 text-decoration-none text-info mx-3 fw-semibold"
+          >
             CSS Hacks
-          </Navbar.Brand>
+          </Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
@@ -48,7 +52,7 @@ const Header = () => {
               </Link>
             </Nav>
 
-            <Nav.Link eventKey={2} href="#profile" className="ms-2">
+            <Link className="ms-2">
               {user?.photoURL ? (
                 <Tippy content={user?.displayName}>
                   <Image
@@ -58,11 +62,11 @@ const Header = () => {
                   ></Image>
                 </Tippy>
               ) : (
-                <FaJenkins></FaJenkins>
+                <FaJenkins className="me-3"></FaJenkins>
               )}
-            </Nav.Link>
+            </Link>
             <Nav>
-              <Nav.Link eventKey={2} href="#profile">
+              <Link className="text-decoration-none text-secondary">
                 {user?.uid ? (
                   <Button
                     className="bg-transparent border border-0 text-secondary"
@@ -86,8 +90,9 @@ const Header = () => {
                     </Link>
                   </>
                 )}
-              </Nav.Link>
+              </Link>
             </Nav>
+            <ReactSwitch></ReactSwitch>
           </Navbar.Collapse>
         </Container>
       </Navbar>

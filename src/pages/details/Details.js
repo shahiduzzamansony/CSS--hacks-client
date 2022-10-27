@@ -35,7 +35,7 @@ const Details = () => {
                     className="btn btn-ghost rounded-b-none"
                     onClick={toPdf}
                   >
-                    Download
+                    Download PDF
                   </button>
                 )}
               </ReactToPdf>

@@ -25,6 +25,11 @@ const AuthProvider = ({ children }) => {
     return updateProfile(auth.currentUser, profile);
   };
 
+  const githubLogin = (provider) => {
+    setLoading(true);
+    return signInWithPopup(auth, provider);
+  };
+
   const providerLogin = (provider) => {
     setLoading(true);
     return signInWithPopup(auth, provider);
@@ -64,6 +69,7 @@ const AuthProvider = ({ children }) => {
     loading,
     toggleTheme,
     handleProfile,
+    githubLogin,
   };
 
   return (

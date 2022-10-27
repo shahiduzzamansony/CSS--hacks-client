@@ -23,6 +23,10 @@ const Header = () => {
     <div>
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Container>
+          <Image
+            style={{ height: "40px" }}
+            src="https://cdn-icons-png.flaticon.com/512/919/919826.png"
+          ></Image>
           <Link
             to="/"
             className="fs-1 text-decoration-none text-info mx-3 fw-semibold"

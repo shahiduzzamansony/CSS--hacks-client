@@ -1,6 +1,6 @@
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
@@ -9,13 +9,23 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const { providerLogin, signIn } = useContext(AuthContext);
+  const { providerLogin, signIn, githubLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
   const from = location.state?.from?.pathname || "/";
 
   const googleProvider = new GoogleAuthProvider();
+
+  const githubProvider = new GithubAuthProvider();
+
+  const handleGIthub = () => {
+    githubLogin(githubProvider)
+      .then((result) => {
+        navigate(from, { replace: true });
+      })
+      .catch((e) => console.error(e.message));
+  };
 
   const handleGoogleLogIn = () => {
     providerLogin(googleProvider)
@@ -46,7 +56,7 @@ const Login = () => {
   };
 
   return (
-    <div className="w-50 m-auto">
+    <div className="w-50 m-auto bg-light p-5 mt-4 rounded">
       <Form className="my-4" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -85,7 +95,7 @@ const Login = () => {
           >
             <FaGoogle className="me-2"></FaGoogle>LogIn with Google
           </Button>
-          <Button className="bg-dark border border-0">
+          <Button className="bg-dark border border-0" onClick={handleGIthub}>
             <FaGithub className="me-2"></FaGithub>LogIn with Github
           </Button>
         </ButtonGroup>

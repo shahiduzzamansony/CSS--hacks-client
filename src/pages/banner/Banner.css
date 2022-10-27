@@ -1,5 +1,5 @@
 body {
-    background: url('https://cdn.mos.cms.futurecdn.net/Vp9WvV7YKdH4k8sKRePcE8.jpg') no-repeat center center fixed;
+    background: url('../../../public/bg.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;

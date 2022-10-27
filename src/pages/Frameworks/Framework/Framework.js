@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Framework = () => {
   const [frameworks, setFrameworks] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/frameworks")
+    fetch("https://educational-assignment-ten-server.vercel.app/frameworks")
       .then((res) => res.json())
       .then((data) => setFrameworks(data));
   }, []);

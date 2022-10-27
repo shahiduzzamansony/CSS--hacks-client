@@ -19,7 +19,10 @@ export const routes = createBrowserRouter([
       {
         path: "/framework",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/frameworks"),
+        loader: () =>
+          fetch(
+            "https://educational-assignment-ten-server.vercel.app/frameworks"
+          ),
       },
       {
         path: "/",
@@ -45,7 +48,9 @@ export const routes = createBrowserRouter([
         path: "/details/:id",
         element: <Details></Details>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/details/${params.id}`),
+          fetch(
+            `https://educational-assignment-ten-server.vercel.app/details/${params.id}`
+          ),
       },
       {
         path: "/checkout/:id",
@@ -55,7 +60,9 @@ export const routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/details/${params.id}`),
+          fetch(
+            `https://educational-assignment-ten-server.vercel.app/details/${params.id}`
+          ),
       },
       {
         path: "*",

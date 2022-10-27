@@ -18,7 +18,7 @@ const Header = () => {
 
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Container>
           <Navbar.Brand href="#home" className="fs-2">
             CSS Hacks
@@ -28,7 +28,7 @@ const Header = () => {
             <Nav className="me-auto">
               <Link
                 className="text-decoration-none text-secondary me-2"
-                to="/frameworks"
+                to="/framework"
               >
                 Frameworks
               </Link>

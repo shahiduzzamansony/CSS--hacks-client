@@ -4,7 +4,11 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "./Details.css";
 
+import ReactToPdf from "react-to-pdf";
+import { useRef } from "react";
+
 const Details = () => {
+  const ref = useRef();
   const data = useLoaderData();
   const { name, img_url, price, classes, details, id } = data;
   return (
@@ -24,12 +28,19 @@ const Details = () => {
           </div>
 
           <div className="d-flex justify-content-between">
-            <Button variant="secondary">
-              <Link className="text-decoration-none text-white">
-                Download PDF
-              </Link>
-            </Button>
-            <Button variant="secondary">
+            <div>
+              <ReactToPdf targetRef={ref} filename="course.pdf">
+                {({ toPdf }) => (
+                  <button
+                    className="btn btn-ghost rounded-b-none"
+                    onClick={toPdf}
+                  >
+                    Download
+                  </button>
+                )}
+              </ReactToPdf>
+            </div>
+            <Button>
               <Link
                 to={`/checkout/${id}`}
                 className="text-decoration-none text-white"

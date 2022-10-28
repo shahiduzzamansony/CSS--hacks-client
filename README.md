@@ -10,12 +10,19 @@ https://educational-assignment-ten.web.app/
 #Course buying option.
 #Four react topics discussed.
 #Details pdf dowload is also available.
+<<<<<<< HEAD
 ## Frameworks
 
+=======
+##Frameworks
+>>>>>>> a977457ef3cac9b9b8826c8a857d3139ee58441d
 #Bootstrap
 #Tailwind CSS
 #Bulma
 #Foundation
 #UIkit
 #Susy
+<<<<<<< HEAD
 
+=======
+>>>>>>> a977457ef3cac9b9b8826c8a857d3139ee58441d

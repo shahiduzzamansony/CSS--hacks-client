@@ -90,6 +90,7 @@ const Register = () => {
           Submit
         </Button>
         <Form.Text className="text-danger">
+          {/* comment added */}
           <p>{error}</p>
         </Form.Text>
       </Form>

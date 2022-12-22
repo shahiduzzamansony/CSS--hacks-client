@@ -4,7 +4,7 @@ import Typewriter from "typewriter-effect";
 
 const Banner = () => {
   return (
-    <div className="type ">
+    <div className="type my-auto">
       <Typewriter
         onInit={(typewriter) => {
           typewriter

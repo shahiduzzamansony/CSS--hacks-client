@@ -4,17 +4,12 @@ import Typewriter from "typewriter-effect";
 
 const Banner = () => {
   return (
-    <div className="type my-auto">
+    <div className="type my-5">
       <Typewriter
-        onInit={(typewriter) => {
-          typewriter
-
-            .typeString("CSS Hacks")
-
-            .pauseFor(1000)
-            .deleteAll()
-            .typeString("Welcomes You")
-            .start();
+        options={{
+          strings: ["CSS Hacks", "Welcomes You"],
+          autoStart: true,
+          loop: true,
         }}
       />
     </div>
